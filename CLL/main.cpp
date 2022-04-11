@@ -12,10 +12,15 @@ int main()
     node* objectRear = object.returnRear();
     //object.removeGreater7(objectRear->next, objectRear->next);
 
-    clist copyList;
+    /*clist copyList;
     node* copyRear = copyList.returnRear();
     copyList.copyNot2(objectRear->next, objectRear, copyRear, copyRear);
-    copyList.display();
+    copyList.display();*/
+
+    int sum = 0;
+    //object.evenSum(objectRear->next, sum);
+
+    object.duplicate2(objectRear->next);
     
     object.display(); //resulting list after your function call!
     

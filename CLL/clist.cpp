@@ -100,3 +100,47 @@ void clist::copyNot2(node* current, node* ogRear, node* copyCurr, node* head){
     copyNot2(current->next, ogRear, copyCurr, head);
   }
 }
+
+void clist::evenSum(node* current, int & sum){
+  if(current->data % 2 == 0){
+    sum += current->data;
+  }
+  if(current != rear){
+    evenSum(current->next, sum);
+  } else{
+    cout << sum << endl;
+  }
+}
+
+void clist::duplicate2(node* current){
+  bool duplicated = true;
+  node* duplicate = new node();
+  if(current->data == 2){
+    duplicate->data = current->data;
+    
+    if(rear == current){ //insert at end
+      node* head = rear->next;
+      current->next = duplicate;
+      rear = duplicate;
+      duplicate->next = head;
+    }
+    else{
+      node* temp = current->next;
+      current->next = duplicate;
+      duplicate->next = temp;
+    }
+  }
+  else{
+    if(current != rear){
+      duplicate2(current->next);
+      duplicated = false;
+    }
+    else{
+      return;
+    }
+  }
+
+  if(duplicate != rear && duplicated == true){
+    duplicate2(duplicate->next);
+  }
+}

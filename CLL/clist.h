@@ -26,6 +26,8 @@ class clist
   node* returnRear();
   void removeGreater7(node* current, node* previous);
   void copyNot2(node* current, node* ogRear, node* copyCurr, node* head);
+  void evenSum(node* current, int & sum);
+  void duplicate2(node* current);
 
 
 	private:
