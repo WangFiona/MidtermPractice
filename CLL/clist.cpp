@@ -42,3 +42,38 @@ void clist::display() {
   cout << rear->data << " ";
   cout << endl;
 }
+
+node* clist::returnRear(){
+  return rear;
+}
+
+void clist::removeGreater7(node* current, node* previous){
+  bool deleted = true;
+  if(rear->next == current && current->data > 7){
+    node* temp = current;
+    rear->next = current->next;
+    previous = rear;
+    delete temp;
+  }
+  else if(current == rear && current->data > 7){
+    node* temp = current;
+    previous->next = rear->next;
+    rear=previous;
+    delete temp;
+  }
+  else if(current->data > 7){
+    node* temp = current;
+    previous->next = temp->next;
+    delete temp;
+  }
+  else{
+    if(current!=rear){
+      removeGreater7(current->next, current);
+      deleted = false;
+    }
+  }
+
+  if(current != rear && deleted == true){
+    removeGreater7(previous->next, previous);
+  }
+}

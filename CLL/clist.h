@@ -23,6 +23,8 @@ class clist
 
 	/* *****************YOUR TURN! ********************* */
 	//Write your function prototype here:
+  node* returnRear();
+  void removeGreater7(node* current, node* previous);
 
 
 	private:
