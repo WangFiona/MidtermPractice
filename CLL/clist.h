@@ -25,6 +25,7 @@ class clist
 	//Write your function prototype here:
   node* returnRear();
   void removeGreater7(node* current, node* previous);
+  void copyNot2(node* current, node* ogRear, node* copyCurr, node* head);
 
 
 	private:

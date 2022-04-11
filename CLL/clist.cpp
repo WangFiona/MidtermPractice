@@ -77,3 +77,26 @@ void clist::removeGreater7(node* current, node* previous){
     removeGreater7(previous->next, previous);
   }
 }
+
+void clist::copyNot2(node* current, node* ogRear, node* copyCurr, node* head){
+  if(current->data != 2){
+    node* newNode = new node();
+    newNode->data = current->data;
+
+    if(rear==NULL){
+      newNode->next = newNode;
+      rear = newNode;
+      head = rear;
+    }
+    else{
+      copyCurr->next = newNode;
+      rear = newNode;
+      newNode->next = head;
+    }
+    copyCurr = newNode;
+  }
+
+  if(current != ogRear){
+    copyNot2(current->next, ogRear, copyCurr, head);
+  }
+}
