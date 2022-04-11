@@ -109,3 +109,47 @@ void dlist::returnEvenSum(node* current, int &sum){
     cout << sum << endl;
   }
 }
+
+void dlist::duplicate2(node* current){
+  node* duplicate = new node();
+  bool duplicated = true;
+  if(current->data == 2){
+    duplicate->data = 2;
+    if(current==tail){
+      current->next = duplicate;
+      duplicate->previous = current;
+      tail = duplicate;
+    }
+    else{
+      node* temp = current->next;
+      current->next = duplicate;
+      duplicate->next = temp;
+      duplicate->previous = current;
+      temp->previous = duplicate;
+    }
+  }
+  else{
+    if(current->next){
+      duplicate2(current->next);
+      duplicated = false;
+    }
+  }
+
+  if(duplicated == true && duplicate->next){
+    duplicate2(duplicate->next);
+  }
+}
+
+void dlist::insertAtBeginning(){
+  node* newNode = new node();
+  newNode->data = 4;
+  newNode->next = head;
+  head->previous = newNode;
+  head = newNode;
+
+  node* endNode = new node();
+  endNode->data = 4;
+  tail->next = endNode;
+  endNode->previous = tail;
+  tail = endNode;
+}

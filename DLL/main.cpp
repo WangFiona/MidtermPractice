@@ -18,8 +18,11 @@ int main()
     //copyList.copyNot2(head, copyNode);
     //copyList.display();
     int sum = 0;
-    object.returnEvenSum(head, sum);
+    //object.returnEvenSum(head, sum);
 
+    //object.duplicate2(head);
+    object.insertAtBeginning();
+    
     object.display();
     
     return 0;

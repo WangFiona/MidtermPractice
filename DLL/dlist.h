@@ -30,6 +30,8 @@ class dlist
   void removeFirstLast();
   void copyNot2(node* current, node* copy);
   void returnEvenSum(node* current, int &sum);
+  void duplicate2(node* current);
+  void insertAtBeginning();
      
      private:
          node * head;   //notice there is both a head
